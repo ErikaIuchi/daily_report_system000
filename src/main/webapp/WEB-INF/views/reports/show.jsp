@@ -55,7 +55,7 @@
 
         <c:if test="${sessionScope.login_employee.id != report.employee.id }">
         <p>
-            <a href="<c:url value='?action=${actRep }&command=${commEdt }&id=${report.id }' />">この日報にいいねする</a>
+            <a href="<c:url value='?action=${actRep }&command=${commFav}' />">この日報にいいねする</a>
         </p>
         </c:if>
 

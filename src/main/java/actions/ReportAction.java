@@ -240,4 +240,20 @@ public class ReportAction extends ActionBase {
         }
     }
 
+    /**
+     * 日報にいいねする
+     */
+    public void favorite() throws ServletException, IOException {
+
+        //いいねの数を１増やす
+
+
+        //セッションにいいね完了のフラッシュメッセージを設定
+        putSessionScope(AttributeConst.FLUSH, MessageConst.I_FAVORITE.getMessage());
+
+        //一覧画面にリダイレクト
+        redirect(ForwardConst.ACT_REP, ForwardConst.CMD_INDEX);
+
+    }
+
 }
