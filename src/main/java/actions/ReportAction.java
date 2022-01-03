@@ -245,8 +245,11 @@ public class ReportAction extends ActionBase {
      */
     public void favorite() throws ServletException, IOException {
 
-        //いいねの数を１増やす
+        //idを条件に日報データを取得する
+        ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
 
+        //いいねの数を１増やす
+        rv.setFavorite(null);
 
         //セッションにいいね完了のフラッシュメッセージを設定
         putSessionScope(AttributeConst.FLUSH, MessageConst.I_FAVORITE.getMessage());
