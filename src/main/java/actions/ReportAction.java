@@ -249,7 +249,13 @@ public class ReportAction extends ActionBase {
         ReportView rv = service.findOne(toNumber(getRequestParam(AttributeConst.REP_ID)));
 
         //いいねの数を１増やす
-        rv.setFavorite(null);
+        int favorite = rv.getFavorite();
+
+        //入力された日報内容を設定する
+        rv.setFavorite( favorite +1 );
+
+        //日報データを更新する
+        service.update(rv);
 
         //セッションにいいね完了のフラッシュメッセージを設定
         putSessionScope(AttributeConst.FLUSH, MessageConst.I_FAVORITE.getMessage());
